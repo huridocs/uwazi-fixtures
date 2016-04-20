@@ -1,0 +1,21 @@
+{
+  "name": "uwazi-fixtures",
+  "version": "1.0.0",
+  "description": "testing fixture for uwazidocs project",
+  "main": "''",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huridocs/uwazi-fixtures.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huridocs/uwazi-fixtures/issues"
+  },
+  "dependencies": {
+    "couchdb-dump": "^2.2.1"
+  }
+}
