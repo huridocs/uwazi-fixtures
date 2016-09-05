@@ -6,6 +6,7 @@
 
 #!/bin/bash
 echo "Copying conversions....";
+rm ./conversions/*.json
 cp ../conversions/*.json ./conversions
 
 
