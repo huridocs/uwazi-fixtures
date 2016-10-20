@@ -77,7 +77,14 @@ curl -X PUT http://localhost:9200/${1:-uwazi_development}/ -d '
           "match_mapping_type" : "geo_point",
           "mapping" : { "type" : "geo_point", "doc_values" : true }
         }
-      } ],
+      }, {
+        "nested_fields" : {
+          "match_mapping_type": "object",
+          "path_match" : "doc.metadata.*",
+          "path_unmatch" : "doc.metadata.*.*",
+          "mapping" : {"type" : "nested"}
+        }
+      }],
       "properties" : {
         "@timestamp": { "type": "date", "doc_values" : true },
         "@version": { "type": "string", "index": "not_analyzed", "doc_values" : true },
