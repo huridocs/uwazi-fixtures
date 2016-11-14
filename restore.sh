@@ -11,6 +11,6 @@ curl -X PUT http://127.0.0.1:5984/${1-uwazi_development}/
 echo -e "\nimporting uwazi.json into ${1:-uwazi_development} database"
 ./node_modules/couchdb-dump/bin/cdbload -d ${1:-uwazi_development} < uwazi.json
 
-echo "Restoring conversions...."
-rm ../conversions/*.json
-cp ./conversions/*.json ${2:-..}/conversions/
+echo "Restoring uploaded files..."
+rm ../uploaded_documents/*.pdf
+cp ./uploaded_documents/*.pdf ${2:-..}/uploaded_documents/
