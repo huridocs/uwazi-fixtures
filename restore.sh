@@ -1,16 +1,8 @@
 #!/bin/bash
-
 echo -e "\n\nDeleting ${1:-uwazi_development} database"
-curl -X DELETE http://127.0.0.1:5984/${1:-uwazi_development}/
-sleep 1
-echo -e "\nCreating ${1:-uwazi_development} database"
-curl -X PUT http://127.0.0.1:5984/${1-uwazi_development}/
-echo -e "\nimporting uwazi.json into ${1:-uwazi_development} database"
-./node_modules/couchdb-dump/bin/cdbload -d ${1:-uwazi_development} < uwazi.json
-sleep 1
-echo -e "\nreseting views on ${1:-uwazi_development} database"
-../couchdb/restore_views.sh
+mongo -host ${2:-127.0.0.1} ${1:-uwazi_development} --eval "db.dropDatabase()"
+mongorestore -h ${2:-127.0.0.1} dump/uwazi_development/ --db=${1:-uwazi_development} 
 
-echo "Restoring uploaded files..."
+echo "Restoring pdfs..."
 rm ../uploaded_documents/*.pdf
 cp ./uploaded_documents/*.pdf ${2:-..}/uploaded_documents/
