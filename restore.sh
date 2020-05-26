@@ -12,6 +12,9 @@ echo -e "\n\nDeleting $DB database"
 mongo -host $HOST $DB --eval "db.dropDatabase()"
 mongorestore -h $HOST dump/uwazi_development/ --db=$DB
 
+ls ..
+ls ../..
+
 echo "Restoring pdfs... $current_path"
 rm $current_path/../uploaded_documents/*.pdf
 cp $current_path/uploaded_documents/*.pdf $current_path/../uploaded_documents/
