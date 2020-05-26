@@ -15,3 +15,6 @@ mongorestore -h $HOST dump/uwazi_development/ --db=$DB
 echo "Restoring pdfs... $parent_path"
 rm ../uploaded_documents/*.pdf
 cp ./uploaded_documents/*.pdf ../uploaded_documents/
+
+yarn migrate
+yarn reindex
