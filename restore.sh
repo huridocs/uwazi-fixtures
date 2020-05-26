@@ -13,8 +13,8 @@ mongo -host $HOST $DB --eval "db.dropDatabase()"
 mongorestore -h $HOST uwazi-fixtures/dump/uwazi_development/ --db=$DB
 
 echo "Restoring pdfs... $current_path"
-rm ./uploaded_documents/*.pdf
-cp ./uwazi-fixtures/uploaded_documents/*.pdf ./uploaded_documents/
+rm ./uploaded_documents/*
+cp ./uwazi-fixtures/uploaded_documents/* ./uploaded_documents/
 
 yarn migrate
 yarn reindex
