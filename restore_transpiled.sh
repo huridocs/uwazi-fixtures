@@ -14,6 +14,6 @@ rm ./uploaded_documents/*
 cp ./uwazi-fixtures/uploaded_documents/* ./uploaded_documents/
 
 echo "Running migrations..."
-yarn migrate
+node ./prod/app/api/migrations/migrate.js
 echo "Reindexing..."
-yarn reindex
+node ./prod/database/reindex_elastic.js
