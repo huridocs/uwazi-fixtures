@@ -4,6 +4,7 @@
 
 DB=${1:-${DATABASE_NAME:-uwazi_development}}
 HOST=${2:-${DBHOST:-127.0.0.1}}
+TRANSPILED=${3:-${TRANSPILED:-false}}
 
 echo -e "\n\nDeleting $DB database"
 mongo -host $HOST $DB --eval "db.dropDatabase()"
@@ -14,6 +15,15 @@ rm ./uploaded_documents/*
 cp ./uwazi-fixtures/uploaded_documents/* ./uploaded_documents/
 
 echo "Running migrations..."
-yarn migrate
+if [ $TRANSPILED = true ]; then
+  node ./prod/app/api/migrations/migrate.js
+else
+  yarn migrate
+fi
+
 echo "Reindexing..."
-yarn reindex
+if [ $TRANSPILED = true ]; then
+  node ./prod/database/reindex_elastic.js
+else
+  yarn reindex
+fi
