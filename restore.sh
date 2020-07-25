@@ -16,14 +16,14 @@ cp ./uwazi-fixtures/uploaded_documents/* ./uploaded_documents/
 
 echo "Running migrations..."
 if [ $TRANSPILED = true ]; then
-  node ./prod/app/api/migrations/migrate.js
+  node --max-http-header-size 20000 ./prod/app/api/migrations/migrate.js
 else
   yarn migrate
 fi
 
 echo "Reindexing..."
 if [ $TRANSPILED = true ]; then
-  node ./prod/database/reindex_elastic.js
+  node --max-http-header-size 20000 ./prod/database/reindex_elastic.js
 else
   yarn reindex
 fi
