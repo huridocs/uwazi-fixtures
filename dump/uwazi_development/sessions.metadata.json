@@ -1,1 +1,1 @@
-{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"uwazi_development.sessions"},{"v":2,"key":{"expires":1},"name":"expires_1","expireAfterSeconds":0,"ns":"uwazi_development.sessions"}],"uuid":"681c6b8656d54e7fbf9201a1df53d680"}
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"},{"v":{"$numberInt":"2"},"key":{"expires":{"$numberInt":"1"}},"name":"expires_1","expireAfterSeconds":{"$numberInt":"0"}}],"uuid":"8b2aa5d29ac24f5e8663e4a109eccd1d","collectionName":"sessions"}
