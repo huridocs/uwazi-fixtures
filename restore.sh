@@ -16,7 +16,7 @@ cp ./uwazi-fixtures/uploaded_documents/* ./uploaded_documents/
 
 echo "Running migrations..."
 if [ $TRANSPILED = true ]; then
-  node --max-http-header-size 20000 ./prod/app/api/migrations/migrate.js
+  node --max-http-header-size 20000 ./prod/scripts/migrate.js
 else
   yarn migrate
 fi
