@@ -1,1 +1,1 @@
-{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"}],"uuid":"d07a3e7dc8db4b84bbed9651cf408f1a","collectionName":"migrations"}
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"uwazi_e2e.migrations"}],"uuid":"399ed6435a6d48db822ebc66421d2d4f"}
